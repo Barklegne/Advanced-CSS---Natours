@@ -35,6 +35,10 @@ body {
         rgba(126,213,11,0.8),
         rgba(40,180,131,0.8)), 
     url('../img/hero.jpg') no-repeat top/cover;
+
+    /* Use the following to play around with the gradient */
+    /*   background: linear-gradient( 90deg, rgba(91,91,224,0.2067869384081757) 8%, rgba(0.8,212,255,.6) 84%), 
+    url('../img/hero.jpg') no-repeat top/cover; */
     
     /* Clockwise cutting adage of a polygon 
        For more shapes refer bennettfeely.com/clippy*/
@@ -172,7 +176,6 @@ body {
 @keyframes moveInBottom{
     0% {
         opacity: 0;
-        
         /* Elements will start Xpx lower than their actual position */
         transform: translateY(30px);
     }
