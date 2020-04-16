@@ -7,9 +7,22 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
+    /* Inherits from the html page [slightly better practice to use] */
+    box-sizing: inherit;
+}
+
+html {
+    /* Bad practice to use px */
+    /* font-size: 10px;  */
+    
+    /* using percentage is a good practice since the user might change the browser's font size e.g. if we want 16px == 100% then then 
+    if we want 10px in percentage 10/16 = 0.625, ==> 0.625 * 100 = 62.5% */
+    font-size: 62.5%;
     box-sizing: border-box;
 }
 
@@ -17,9 +30,9 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 16px;
+    /* font-size: 16px; */
     color: #777;
-    padding: 1.2rem;
+    padding: 3rem;
 }
 
 .header {
@@ -47,16 +60,16 @@ body {
     border-radius: 5px;
 }
 
-.logo-box {
+.header-logo-box {
     /* Exact Positioning */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo {
+.header-logo {
     /* For a better visibility, set the height then the width will be specified accordingly  */
-    height: 35px;
+    height: 3.5rem;
 }
 
 .logo:hover {
@@ -67,14 +80,15 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+/* --main is BEM modifier */
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     /* Calling animation */
     animation-name: moveInLeft;
@@ -95,11 +109,12 @@ body {
     
 }
 
-.heading-primary-sub {
+/* --sub is BEM modifier */
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
-    font-weight: 700px;
-    letter-spacing: 17.4px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
 
     /* animation-name: moveInRight;
     animation-duration: 5s;
@@ -110,7 +125,7 @@ body {
     animation: moveInRight 5s ease-out;
 }
 
-.text-box { 
+.header-text-box { 
     position: absolute;
     
     /* the % is in relation to the parent element */
@@ -135,13 +150,13 @@ body {
         opacity: 0;
         
         /* X Axis direction */
-        transform: translateX(-200px);
+        transform: translateX(-10rem);
     }
 
 
     80% {
         /*Changing the X Axis direction */
-        /* transform: translateX(50px); */
+        transform: translateX(-rem);
 
         /* Text Rotation if needed */
         /* transform: rotate(358deg); */
@@ -160,11 +175,11 @@ body {
 @keyframes moveInRight{
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -177,7 +192,7 @@ body {
     0% {
         opacity: 0;
         /* Elements will start Xpx lower than their actual position */
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     100% {
@@ -191,8 +206,8 @@ body {
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none;
-    padding: .8rem 1.5rem;
-    border-radius: 2rem;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
 
     /* setting animation [the transformations on hover and active will also be affected by this]*/
 
@@ -201,6 +216,8 @@ body {
     
     /* In order to make its child position absolute */
     position: relative;
+
+    font-size: 1.6rem;
     
 }
 
@@ -209,7 +226,7 @@ body {
     transform: translateY(-3px);
     
     /* Shadows the button with x, y, blur and color with opacity */
-    box-shadow: 0px 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
@@ -217,10 +234,11 @@ body {
     transform: translateY(-1px);
 
      /* Shadows the button with x, y, blur and color with opacity */
-    box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
-.btn-white {
+/* BEM modifier */
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -236,7 +254,7 @@ body {
     /* The width,the height, and the border radius also must be the same as its parent (the button) */
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    border-radius: 10rem;
 
     /* To hide the virtual button underneath the actual button */
     position: absolute;
@@ -250,7 +268,7 @@ body {
 }
 
 /* The virtual button should also be the same color as its parent element */
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -260,7 +278,8 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+/* BEM modifier */
+.btn--animated {
     /* Calls the animation  with [ animation name, animation time, animation type, animation detail ]*/
     animation: moveInBottom .5s ease-out .75s;
 
