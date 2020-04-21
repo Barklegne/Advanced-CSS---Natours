@@ -1,0 +1,35 @@
+// Nesting CSS elements. refer style.css for the compiled version
+.header {
+    position: relative;
+    height: 95vh;
+
+    background: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light,0.8),
+        rgba($color-primary-dark,0.8)), 
+    url('../img/hero.jpg') no-repeat top/cover;
+
+    clip-path: polygon( 0 0, 100% 0, 100% 75% , 0 100%);
+    border-radius: 5px;
+
+    // Will be translated to `header-logo-box` in style.css
+    &-logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &-logo {
+        height: 3.5rem;
+
+    }
+
+    &-text-box { 
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    
+}
